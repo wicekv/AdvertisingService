@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/b64830dbde.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+</head>
+<body>
+<div class="container2">
+    <div class="hero-shadow"></div>
+    <div class="header ">
+        <div class="btn">
+            <a href="/">
+                <i class="fas fa-leaf lisc"></i>
+                <span class="text">Lend</span>
+                <span class="lisc">Me</span>
+            </a>
+        </div>
+
+        <div class="header-btn">
+            <div class="btn">
+                <a class="btn" th:href="@{/}">Strona główna</a>
+            </div>
+            <div class="btn">
+                <a class="btn" th:href="@{/article/list}"> Oferty </a>
+            </div>
+            <div class="btn" style="color: lime">
+                <div class="dropdown">
+                    <div class="dropbtn">Twoje Konto</div>
+                    <div class="dropdown-content">
+                        <a th:href="@{/profil/display}">Profil</a>
+                        <a th:href="@{/article/listMy}">Twoje Ogłoszenia</a>
+                        <a th:href="@{/article/add}">Dodaj Ogłoszenie</a>
+                        <a class="log-out" th:href="@{/logout}">Wyloguj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="addArticle-div">
+
+            <form th:action="@{/article/add}" th:object="${article}" method="post" enctype="multipart/form-data">
+
+
+                <div class="">
+                    <input id="name" class="input input-product" th:field="*{name}" placeholder="Nazwa"/>
+                </div>
+                <div class="">
+                    <input id="placeOfTheObject" class="input input-product" th:field="*{placeOfTheObject}"
+                           placeholder="Gdzie jest przedmiot"/>
+                </div>
+                <div class="">
+                    <input id="description" class="input input-product" th:field="*{description}" placeholder="Opis"/>
+                </div>
+
+                <div class="">
+                    <input id="price" class="input input-product" th:field="*{price}"
+                           placeholder="Cena / 24h"/>
+                </div>
+
+                <div class="adding" style="display: flex; align-items: center; justify-content: center;">
+                    <div style="margin-right: 5px">
+                        <label style="color: white" for="files"> Dodaj zdjęcie (max. 10): </label>
+                    </div>
+
+                    <div style="max-width: 220px">
+                        <input id="files" class="adding" type="file" name="files" accept="image/png, image/jpeg"
+                               multiple style="outline: none"/>
+                    </div>
+                </div>
+
+                <div class="register-btn">
+                    <button type="submit" class="login-button">Dodaj Ogłoszenie!</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>

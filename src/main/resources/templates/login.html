@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:class="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+
+    <title>Registration</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="login-div">
+        <div class="login-text">
+            <span>Zaloguj się</span>
+        </div>
+        <form th:action="@{/login}" method="post">
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Nieprawidłowa nazwa użytkownika lub hasło.</div>
+            </div>
+
+            <div>
+                <input id="username" class="input" name="username" type="text" placeholder="Email" />
+            </div>
+            <div>
+                <input id="password" class="input" name="password" type="password" placeholder="Hasło" />
+            </div>
+            <div id="login-button" style="text-align: center">
+                <button class="login-button" type="submit" name="login-submit" id="login-submit">
+                    <a class="link-text">Zaloguj się</a>
+                </button>
+            </div>
+        </form>
+
+        <div class="row">
+            <div id="sub-buttons">
+                <button class="sub-buttons">
+                    <a class="link-text" href="/registration">Zarejestruj się</a>
+                </button>
+            </div>
+            <div id="sub-buttons2">
+                <button class="sub-buttons">Zapomniałeś hasła?</button>
+            </div>
+        </div>
+
+    </div>
+
+<!--    <form th:action="@{/login}" method="post">-->
+
+<!--
+<!--            <input type="text"-->
+<!--                   id="username" name="username" class="form-control"-->
+<!--                   autofocus="autofocus" placeholder="Username"/>-->
+<!--
+<!--
+<!--            <input type="password"-->
+<!--                   id="password" name="password" class="form-control"-->
+<!--                   placeholder="Password"/>-->
+<!--
+
+<!--            <input href="/" type="submit" name="login-submit" id="login-submit"-->
+<!--                   class="form-control btn btn-primary" value="Log In"/>-->
+
+<!--    </form>-->
+</div>
+
+
+</body>
+</html>

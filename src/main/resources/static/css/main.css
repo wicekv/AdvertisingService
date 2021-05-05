@@ -1,0 +1,741 @@
+body {
+    margin: 0;
+}
+
+/*Login elo*/
+.container {
+    min-height: 100vh;
+    background-size: cover;
+    background-image: url("./images/poleL.jpg");
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container2
+{
+    position: relative;
+    min-height: 100vh;
+    background-size: cover;
+    background: url("./images/poleL.jpg") no-repeat fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+.container3 {
+    width: 600px;
+    height: 420px;
+    color: #cccccc;
+    padding: 15px;
+    background: rgba(40,40,40,0.7);
+    border-radius: 10px;
+}
+
+.shadow {
+    position: relative;
+    top: 0;
+    right: 0;
+
+    backdrop-filter: opacity(0.8);
+}
+
+.login-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 800px;
+    height: 600px;
+}
+
+.login-text {
+    font-size: 50px;
+    background: -webkit-linear-gradient(lime, whitesmoke);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px;
+}
+
+.input {
+    margin: 12px;
+    margin-left: 12px;
+    padding: 11px;
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid lime;
+    outline: none;
+    border-radius: 14px;
+    color: whitesmoke;
+    margin-left: 15px;
+}
+
+.input-product {
+    margin: 12px;
+    padding: 11px;
+    font-size: 25px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid lime;
+    outline: none;
+    border-radius: 14px;
+    color: whitesmoke;
+    width: 410px;
+}
+
+.login-button-pro {
+    background: -webkit-linear-gradient(lime, black);
+    font-size: 20px;
+    color: whitesmoke;
+    margin: 1px 1px 1px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    width: 120px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.input::placeholder, .input:focus {
+    color: whitesmoke;
+}
+
+.input::placeholder {
+    opacity: 0.3;
+}
+
+.login-button {
+    background: -webkit-linear-gradient(lime, darkgreen);
+    font-size: 20px;
+    color: whitesmoke;
+    margin: 1px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    width: 300px;
+    transition: all 0.2s;
+    margin-left: 0px;
+}
+
+.login-button:hover, .sub-buttons:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.sub-buttons {
+    padding: 10px 20px;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background: #333;
+    color: whitesmoke;
+    transition: all 0.2s;
+    /*margin: 10px;*/
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.link-text {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    width: 100%;
+    height: 120px;
+}
+
+.header-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 50vw;
+    z-index: 1;
+}
+
+.header .btn {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    color: whitesmoke;
+    text-align: center;
+    align-self: center;
+}
+
+.btn {
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    color: whitesmoke;
+    text-align: center;
+    align-self: center;
+}
+
+.btn:hover {
+    color: lime;
+    cursor: pointer;
+}
+
+/*Main elo*/
+.text {
+    color: whitesmoke;
+    transition: all 0.2s;
+    font-size: 30px;
+}
+
+.text:hover {
+    color: lime;
+}
+
+.lisc {
+    color: lime;
+    font-size: 30px;
+}
+
+.content {
+    z-index: 1;
+    margin: auto;
+}
+
+.hero-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.hero-shadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 0;
+}
+
+.join-us {
+    text-decoration: none;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+    background: transparent;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+    padding: 6px 12px;
+}
+
+.join-us:hover {
+    background: whitesmoke;
+    color: black;
+}
+
+.welcome {
+    font-size: 69px;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.subwelcome {
+    font-size: 25px;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color: whitesmoke;
+}
+
+.profilUser-div a {
+    display: inline-block;
+}
+
+.green-hover:hover {
+    color: lime;
+}
+
+.log-in {
+    color: lime;
+}
+
+.log-out {
+    color: lime;
+}
+
+.log-out:active {
+    color: lime;
+}
+
+/*Rejestracja elo*/
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.register-err{
+    margin: 0;
+    color: red;
+    position: relative;
+    left: 10px;
+}
+
+.registration-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 900px;
+    height: 800px;
+}
+
+.link-register {
+    text-decoration: none;
+    color: lime;
+}
+
+.register-btn {
+    text-align: center;
+    margin: 10px;
+}
+
+/*Mobilne elo*/
+@media (max-width: 800px) {
+    .login-div {
+        width: 400px;
+        height: 300px;
+    }
+}
+/*menu*/
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+}
+
+
+/* potrzebny do pozycjonowania zawartości listy rozwijanej */
+.dropdown {
+    max-width: 200px !important;
+    min-width: 160px !important;
+    top: 42px;
+    width: 235px !important;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.176) !important;
+    border: none !important;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+/* zawartośc listy rozwijanej */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    max-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Linki w menu */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+
+/* To jest od linkow ktore zmieniaja kolor po najechaniu kursorem */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* od pokazywania menu rozwijanego gdy najezdziesz kursorem */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Zmienia kolor tła przycisku rozwijanej listy w sensie jej zawartosc xd */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+/* Do zmiany wielkości zdjęć w listArticle */
+img {
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+.adding{
+    font-family: 'Montserrat', sans-serif;
+    text-decoration-color: #bbbbbb;
+    color: white;
+}
+
+/* Pop-up usuwania */
+
+* {box-sizing: border-box}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    transition: color .3s, opacity.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+    transition: color .3s, opacity.3s;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+.deletebtn:hover {
+    color: lime;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+    background-color: #f44336;
+    text-transform: uppercase;
+}
+
+/* Add padding and center-align text to the container */
+.popup-container {
+  padding: 16px;
+  text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 100px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .deletebtn {
+    width: 100%;
+  }
+}
+/*Wygląd tabeli z artykułami*/
+.z-index-fix {
+    z-index: 100;
+}
+
+table {
+    margin-top: 20px;
+    width: 1000px;
+    padding: 20px;
+    color: #cccccc;
+    background: rgba(40,40,40,0.7);
+    border-radius: 10px;
+}
+
+thead {
+    color: lime;
+    font-size: 20px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+td img{
+    display: block;
+    margin: 0 auto;
+
+}
+
+.description {
+    height: 300px;
+    word-wrap: break-word;
+}
+
+/*nowe wyswietlanie artykulu*/
+
+.articleContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 700px;
+    background-color: rgba(40, 40, 40, 0.9);
+    border-radius: 10px;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.articleContainer h2, .articleContainer h4 {
+    font-weight: bold;
+}
+
+.articleContainer .left {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 650px;
+    width: 350px;
+    margin-left: 25px;
+}
+
+.articleContainer .left h2 {
+    margin: 20px 0;
+    color: lime;
+    word-wrap: break-word;
+}
+
+.articleContainer .left img {
+    width: 200px;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.articleContainer .bar {
+    position: absolute;
+    left: 380px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 650px;
+    width: 2px;
+    background-color: grey;
+}
+
+.articleContainer .right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    height: 650px;
+    width: 788px;
+    margin-right: 25px;
+}
+
+.articleContainer .right img {
+    width: 100px;
+    height: 100px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin: 20px;
+}
+
+.articleContainer .right a {
+    display: inline-block;
+}
+
+.wrapper {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 650px;
+    text-align: center;
+}
+
+.wrapper .card {
+    color: black;
+    display: inline-block;
+    text-align: center;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+.wrapper .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.wrapper .card .availability {
+    color: black;
+    font-size: 20px;
+    /*padding: 10px;*/
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: lime;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px lime;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.articleContainer .left a {
+    color: tomato;
+    transition: color .5s;
+    font-size: 36px;
+}
+
+.articleContainer .left a:hover{
+    color: red;
+}
+
+/* Tutaj zaczyna się wyglad tabelek i buttona do addArticle */

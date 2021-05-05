@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="pl">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/b64830dbde.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Registration</title>
+</head>
+<body>
+
+<div class="container2">
+    <div class="hero-shadow"></div>
+    <div class="header ">
+        <div class="btn">
+            <a href="/">
+                <i class="fas fa-leaf lisc"></i>
+                <span class="text">Lend</span>
+                <span class="lisc">Me</span>
+            </a>
+        </div>
+
+
+        <div class="header-btn">
+            <div class="btn">
+                <a class="green-hover" th:href="@{/}">Strona główna</a>
+            </div>
+            <div class="btn">
+                <a class="green-hover" th:href="@{/article/list}"> Oferty </a>
+            </div>
+            <div class="btn" sec:authorize="isAuthenticated()">
+                <a class="green-hover" th:href="@{/article/add}">Wystaw produkt</a>
+            </div>
+            <div class="btn" sec:authorize="!isAuthenticated()">
+                <a class="log-in" style="color: lime" th:href="@{/login}">Zaloguj</a>
+            </div>
+            <div class="btn" sec:authorize="isAuthenticated()">
+                <div class="dropdown">
+                    <div class = "dropbtn">Twoje Konto</div>
+                    <div class="dropdown-content">
+                        <a th:href="@{/profil/display}">Profil</a>
+                        <a th:href="@{/article/listMy}">Twoje Ogłoszenia</a>
+                        <a th:href="@{/article/add}">Dodaj Ogłoszenie</a>
+
+                        <a class="log-out" th:href="@{/logout}">Wyloguj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="hero-text">
+            <h1 class="welcome">Witaj w Lend<span style="color: lime">Me</span></h1>
+            <p class="subwelcome">Wypożyczaj sprzęt z najbliższej okolicy! </p>
+            <a type="button" class="join-us" href="/registration" sec:authorize="!isAuthenticated()">Dołącz do nas!</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

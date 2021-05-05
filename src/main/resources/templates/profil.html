@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="pl">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/profilUser.css">
+    <script src="https://kit.fontawesome.com/b64830dbde.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Profile</title>
+</head>
+<body>
+
+<div class="container2">
+    <div class="hero-shadow"></div>
+    <div class="header ">
+        <div class="btn">
+            <a href="/">
+                <i class="fas fa-leaf lisc"></i>
+                <span class="text">Lend</span>
+                <span class="lisc">Me</span>
+            </a>
+        </div>
+
+
+        <div class="header-btn">
+            <div class="btn">
+                <a class="green-hover" th:href="@{/}">Strona główna</a>
+            </div>
+            <div class="btn">
+                <a class="green-hover" th:href="@{/article/list}"> Oferty </a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="isAuthenticated()">
+                <a class="green-hover" th:href="@{/article/add}">Wystaw produkt</a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="!isAuthenticated()">
+                <a class="log-in" th:href="@{/login}">Zaloguj</a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="isAuthenticated()">
+                <div class="dropdown">
+                    <div class = "dropbtn">Twoje Konto</div>
+                    <div class="dropdown-content">
+                        <a th:href="@{/profil/display}">Profil</a>
+                        <a th:href="@{/article/listMy}">Twoje Ogłoszenia</a>
+                        <a th:href="@{/article/add}">Dodaj Ogłoszenie</a>
+                        <a class="log-out" th:href="@{/logout}">Wyloguj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Twoje Dane</h2>
+        <div class = "container3">
+            <h3>Imie</h3>
+            <input class="form-control" type="text" th:field="${user.firstName}" readonly>
+            <h3>Nazwisko</h3>
+            <input class="form-control" type="text" th:field="${user.lastName}" readonly>
+            <h3>Numer Telefonu</h3>
+            <input class="form-control" type="text" th:field="${user.phone}" readonly>
+            <h3>Email</h3>
+            <input class="form-control" type="text" th:field="${user.email}" readonly>
+
+            <div class = "profilUser-div">
+                <a class = "btn" th:href="@{/profil/editProfile}" role="button">Edytuj Profil</a>
+                <a class = "btn" th:href="@{/profil/editPassword}" role="button">Zmień Hasło</a>
+                <a class = "btn" role="button" onclick="document.getElementById('id01').style.display='block'">Usuń konto</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="id01" class="modal">
+        <form class="modal-content" action="/action_page.php">
+            <div class="popup-container">
+                <h1>Usuwanie konta!</h1>
+                <p>Czy na pewno chcesz usunąć konto?</p>
+
+                <div class="clearfix">
+                    <button onclick="document.getElementById('id01').style.display='none'" class="button cancelbtn" type="button">Cofnij</button>
+                    <a class="button deletebtn" th:href="@{/profil/deleteUser}" role="button">Usuń</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

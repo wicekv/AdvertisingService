@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="pl">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://kit.fontawesome.com/b64830dbde.js" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>All articles</title>
+</head>
+<body>
+
+<div class="container2">
+    <div class="hero-shadow"></div>
+    <div class="header ">
+        <div class="btn">
+            <a href="/">
+                <i class="fas fa-leaf lisc"></i>
+                <span class="text">Lend</span>
+                <span class="lisc">Me</span>
+            </a>
+        </div>
+
+
+        <div class="header-btn">
+            <div class="btn">
+                <a class="green-hover" th:href="@{/}">Strona główna</a>
+            </div>
+            <div class="btn">
+                <a class="green-hover" th:href="@{/article/list}"> Oferty </a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="isAuthenticated()">
+                <a class="green-hover" th:href="@{/article/add}">Wystaw produkt</a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="!isAuthenticated()">
+                <a class="log-in" th:href="@{/login}">Zaloguj</a>
+            </div>
+            <div class="btn" style="color: lime" sec:authorize="isAuthenticated()">
+                <div class="dropdown">
+                    <div class = "dropbtn">Twoje Konto</div>
+                    <div class="dropdown-content">
+                        <a th:href="@{/profil/display}">Profil</a>
+                        <a th:href="@{/article/listMy}">Twoje Ogłoszenia</a>
+                        <a th:href="@{/article/add}">Dodaj Ogłoszenie</a>
+                        <a class="log-out" th:href="@{/logout}">Wyloguj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="z-index-fix">
+
+        <form th:action="@{/article/list}">
+            <input type="text" class = "input" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+            <select class="input" th:name = "searchKeyword">
+                <option value="empty"></option>
+                <option value="Nazwa">Nazwa</option>
+                <option value="Lokalizacja">Lokalizacja</option>
+                <option value="Cena">Cena</option>
+            </select>
+            <input type="submit" class = "login-button-pro" value="Szukaj" />
+            <input type="button" class= "login-button-pro" value="Wyczyść" id="btnClear" onclick="clearSearch()" />
+        </form>
+
+        <script type="text/javascript">
+            function clearSearch() {
+                window.location = "[[@{/article/list}]]";
+            }
+        </script>
+
+
+        <a class="green-hover" style="color: whitesmoke" th:if="${currentPage > 1}"  th:href="@{'/article/list/1'}"><i class="fas fa-fast-backward"></i></a>
+        <span th:unless="${currentPage > 1}"><i class="fas fa-fast-backward"></i></span>
+
+        <a th:if="${currentPage > 1}" th:href="@{'/article/list/' + ${currentPage - 1}}"><i class="fas fa-step-backward"></i></a>
+        <span th:unless="${currentPage > 1}"><i class="fas fa-step-backward"></i></span>
+
+        <span class="green-hover" style="color: lime" th:each="i: ${#numbers.sequence(1, totalPages)}">
+        <a th:if="${currentPage != i}" th:href="@{'/article/list/' + ${i}}">[[${i}]]</a>
+        <span th:unless="${currentPage != i}">[[${i}]]</span>
+        &nbsp;
+        </span>
+
+        <a th:if="${currentPage < totalPages}" th:href="@{'/article/list/' + ${currentPage + 1}}"><i class="fas fa-step-forward"></i></a>
+        <span th:unless="${currentPage < totalPages}"><i class="fas fa-step-forward"></i></span>
+
+        <a class="green-hover" style="color: whitesmoke" th:if="${currentPage < totalPages}" th:href="@{'/article/list/' + ${totalPages}}"><i class="fas fa-fast-forward"></i></a>
+        <span th:unless="${currentPage < totalPages}"><i class="fas fa-fast-forward"></i></span>
+
+
+
+        <div class="card">
+            <div class="card-body">
+                <div th:switch="${articles}" class="my-5">
+                    <div class="col-md-10">
+                        <h2 th:case="null">No articles yet!</h2>
+                        <div th:case="*">
+
+                            <div class="wrapper">
+                                <span th:each="article : ${articles}">
+                                    <a th:href="@{/article/{id}(id=${article.articleId})}">
+                                    <div class="card" style="width: 200px;">
+                                        <img class="card-img-top" th:src="@{${'/article-photos/' + article.articleId + '/' + article.photo}}">
+                                        <div class="card-body">
+                                            <h4 class="card-title" th:text="${article.name}"></h4>
+                                            <p class="card-text" th:text="${article.price}"></p>
+                                            <p class="text-muted" th:text="${article.placeOfTheObject}"></p>
+                                        </div>
+                                    </div>
+                                </a>
+                                </span>
+                            </div>
+
+<!--                            <table class="table table-striped table-responsive-md">-->
+<!--                                <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Zdjęcie</th>-->
+<!--                                    <th>Nazwa</th>-->
+<!--                                    <th>Lokalizacja</th>-->
+<!--&lt;!&ndash;                                    <th>Opis</th>&ndash;&gt;-->
+<!--                                    <th>Cena</th>-->
+<!--                                    <th>Szczegóły</th>-->
+<!--                                </tr>-->
+<!--                                </thead>-->
+<!--                                <tbody>-->
+<!--                                <tr th:each="article : ${articles}">-->
+<!--                                    <td>-->
+<!--                                        <img th:src="@{${'/article-photos/' + article.articleId + '/' + article.photo}}"/></a>-->
+<!--                                    </td>-->
+<!--                                    <td th:text="${article.name}"></td>-->
+<!--                                    <td th:text="${article.placeOfTheObject}"></td>-->
+<!--&lt;!&ndash;                                    <td th:text="${article.description}"></td>&ndash;&gt;-->
+<!--                                    <td th:text="${article.price}"></td>-->
+<!--                                    <td><a th:href="@{/article/{id}(id=${article.articleId})}" class="btn btn-primary"><i-->
+<!--                                            class="fas fa-user-edit ml-2"></i></a></td>-->
+<!--                                </tr>-->
+<!--                                </tbody>-->
+<!--                            </table>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

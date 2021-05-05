@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="icon.png">
+    <link rel="stylesheet" href="/css/main.css">
+    <title>LendMe - wypożycz swój sprzęt</title>
+
+</head>
+<body>
+<div class="container">
+        <div th:if="${param.success}">
+            <div class="alert alert-info">Zarejestrowano pomyślnie!</div>
+        </div>
+
+    <div class="registration-div">
+
+        <div class="login-text">
+            <span>Stwórz nowe konto</span>
+
+        </div>
+
+        <form th:action="@{/registration}" th:object="${user}" method="post">
+            <div class="form">
+                <p class="register-err" th:if="${#fields.hasGlobalErrors()}"
+                   th:each="error : ${#fields.errors('global')}" th:text="${error}">Validation
+                    error</p>
+
+                <div class=""
+                     th:classappend="${#fields.hasErrors('firstName')}? 'has-error':''">
+                    <input id="firstName" class="input" th:field="*{firstName}" placeholder="Imię"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('firstName')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class=""
+                     th:classappend="${#fields.hasErrors('lastName')}? 'has-error':''">
+                    <input id="lastName" class="input" th:field="*{lastName}" placeholder="Nazwisko"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('lastName')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class=""
+                     th:classappend="${#fields.hasErrors('email')}? 'has-error':''">
+                    <input id="email" class="input" type="email" th:field="*{email}" placeholder="E-mail"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('email')}" th:text="${error}" >Validation
+                        error</p>
+                </div>
+
+                <div class=""
+                     th:classappend="${#fields.hasErrors('confirmEmail')}? 'has-error':''">
+                    <input id="confirmEmail" class="input" type="email" th:field="*{confirmEmail}"
+                           placeholder="Potwierdź e-mail"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('confirmEmail')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class=""
+                     th:classappend="${#fields.hasErrors('phone')}? 'has-error':''">
+                    <input id="phone" class="input" type="number" th:field="*{phone}" placeholder="Telefon"/>
+                    <p class="register-err"
+                       th:each="error: ${#fields.errors('phone')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class=""
+                     th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+                    <input id="password" class="input" type="password" th:field="*{password}" placeholder="Hasło"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('password')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+                <div class=""
+                     th:classappend="${#fields.hasErrors('confirmPassword')}? 'has-error':''">
+                    <input id="confirmPassword" class="input" type="password" th:field="*{confirmPassword}"
+                           placeholder="Powtórz hasło"/>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('confirmPassword')}"
+                       th:text="${error}">Validation error</p>
+                </div>
+
+                <div class=""
+                     th:classappend="${#fields.hasErrors('terms')}? 'has-error':''">
+                    <input id="terms" type="checkbox" th:field="*{terms}"/>   <label
+                        style="color: whitesmoke;" for="terms"> Zapoznałem się z <a
+                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="link-register">regulaminem oraz polityką prywatności</a> i akceptuje ich postanowienia.
+                </label>
+                    <p class="register-err"
+                       th:each="error : ${#fields.errors('terms')}" th:text="${error}">Validation
+                        error</p>
+                </div>
+
+                <div class="register-btn">
+                    <button type="submit" class="login-button">Zarejestruj się</button>
+                </div>
+
+                <div>
+                    <span style="color: whitesmoke;">Masz już konto? <a class="link-register" href="/" th:href="@{/login}">Zaloguj się</a></span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript"
+        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
+<script type="text/javascript"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+</body>
+</html>

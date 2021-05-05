@@ -1,0 +1,22 @@
+nav a, nav i {
+  margin: 0 5px;
+}
+
+header .hero-img {
+  position: relative;
+  height: 100vh;
+  background-image: url("../images/poleL.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+header .hero-text p {
+  font-size: 25px;
+}
+
+header .hero-text h1 {
+  font-size: 69px;
+}
+/*# sourceMappingURL=large.css.map */
