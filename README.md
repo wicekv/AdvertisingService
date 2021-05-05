@@ -1,1 +1,1 @@
-# PWGNK-ROLNICY
+# Web application with announcements
